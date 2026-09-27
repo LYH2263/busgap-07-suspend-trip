@@ -117,7 +117,9 @@ h1 { margin: 0 0 0.25rem; font-size: 1.25rem; font-weight: 700; }
   font-size: 0.86rem;
 }
 .bg-trip-row:hover { background: rgba(46,196,255,0.06); }
+.bg-trip-row.bg-cancelled { opacity: 0.45; }
 .bg-trip-meta { color: var(--bg-dim); font-size: 0.75rem; }
+.bg-trip-side { display: flex; flex-direction: column; align-items: flex-end; gap: 0.35rem; }
 
 .bg-strip-col {
   display: flex; gap: 0.65rem; overflow-x: auto; padding-bottom: 0.5rem;
@@ -163,12 +165,15 @@ th { color: var(--bg-dim); font-weight: 600; font-size: 0.78rem; }
 .badge-ok { background: rgba(61,214,140,0.18); color: var(--bg-ok); }
 .badge-warn { background: rgba(255,176,32,0.18); color: var(--bg-amber); }
 .badge-bad { background: rgba(255,77,109,0.18); color: var(--bg-red); }
+.badge-off { background: rgba(122,155,176,0.2); color: var(--bg-dim); }
 .btn {
   background: var(--bg-cyan); color: #041018; border: none;
   padding: 0.45rem 0.95rem; font-weight: 700; cursor: pointer; font-size: 0.85rem;
 }
 .btn:hover { filter: brightness(1.08); }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-mini { padding: 0.2rem 0.6rem; font-size: 0.72rem; }
+.btn-ghost { background: transparent; color: var(--bg-cyan); border: 1px solid var(--bg-cyan); }
 .muted { color: var(--bg-dim); }
 .stat { font-size: 1.55rem; font-weight: 800; }
 

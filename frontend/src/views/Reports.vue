@@ -28,9 +28,12 @@ function label(s: string) {
   <div class="bg-split" style="margin-top:1rem">
     <aside class="bg-trip-col">
       <h2>关联班次</h2>
-      <div v-for="r in trips" :key="r.id ?? r.trip_no" class="bg-trip-row">
+      <div v-for="r in trips" :key="r.id ?? r.trip_no" class="bg-trip-row" :class="{ 'bg-cancelled': r.cancelled }">
         <div>
-          <div>{{ r.trip_no }}</div>
+          <div>
+            {{ r.trip_no }}
+            <span v-if="r.cancelled" class="badge badge-off">已停运</span>
+          </div>
           <div class="bg-trip-meta">{{ r.vehicle_no }}</div>
         </div>
         <div class="bg-trip-meta">{{ r.planned_depart }}</div>

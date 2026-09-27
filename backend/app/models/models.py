@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy import DateTime, Float, ForeignKey, Integer, String, Text
+from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.database import Base
 
@@ -20,6 +20,7 @@ class Trip(Base):
     trip_no: Mapped[str] = mapped_column(String(32))
     planned_depart: Mapped[datetime] = mapped_column(DateTime)
     vehicle_no: Mapped[str] = mapped_column(String(32), default="")
+    cancelled: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     line: Mapped["Line"] = relationship(back_populates="trips")
     arrivals: Mapped[list["Arrival"]] = relationship(back_populates="trip")
 

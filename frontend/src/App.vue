@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
+import { onMounted, ref, watch } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 import { api } from './api'
 
 const marks = ref<any[]>([])
 const stopName = ref('')
+const route = useRoute()
 
-onMounted(async () => {
+async function load() {
   try {
     const data = await api('/reports/timeline?line_id=1')
     marks.value = data.marks || []
@@ -14,7 +15,10 @@ onMounted(async () => {
   } catch {
     marks.value = []
   }
-})
+}
+
+onMounted(load)
+watch(() => route.fullPath, load)
 </script>
 <template>
   <div class="bg-shell">
